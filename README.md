@@ -30,7 +30,7 @@ VideoFinder is an intelligent video analysis tool that leverages multimodal AI m
 - Ollama with Llama Vision model installed
 - OpenCV
 
-### Installation
+### Installation For Source Code
 
 1. Clone the repository
 ```bash
@@ -43,17 +43,28 @@ cd VideoFinder
 pip install -r requirements.txt
 ```
 
-3. Make sure Ollama is running with Llama Vision model
-```bash
-ollama run llama3.2-vision
-```
-
-4. Start the application
+3. Start the application
 ```bash
 python main.py
 ```
 
-5. Access the web interface at `http://localhost:8000`
+4. Access the web interface at `http://localhost:8000`
+
+### Installation For Docker
+1. Build Docker Image
+```bash
+docker build video_finder-llama3.2-vision-ollama:latest .
+```
+2. Run Image
+```bash
+docker run -d --name VideoFinder-LLama3.2-vision-Ollama -it -p 8000:8000 -v {UPLOAD_DIR}:/app/uploads -v {FRAMES_DIR}:/app/frames -e OLLAMA_HOST="http://{ip}:{port}" video_finder-llama3.2-vision-ollama:latest
+```
+3. Access the web interface at `http://localhost:8000`
+
+### Make sure Ollama is running with Llama Vision model
+```bash
+ollama run llama3.2-vision
+```
 
 ## 🛠️ Usage
 1. Open the web interface
@@ -91,7 +102,7 @@ VideoFinder 是一个智能视频分析工具，利用多模态AI模型来检测
 - 安装了 Llama Vision 模型的 Ollama
 - OpenCV
 
-### 安装步骤
+### 源码安装步骤
 
 1. 克隆仓库
 ```bash
@@ -104,17 +115,28 @@ cd VideoFinder
 pip install -r requirements.txt
 ```
 
-3. 确保 Ollama 已运行并加载 Llama Vision 模型
-```bash
-ollama run llama3.2-vision
-```
-
-4. 启动应用
+3. 启动应用
 ```bash
 python main.py
 ```
 
-5. 访问 `http://localhost:8000` 打开 Web 界面
+4. 访问 `http://localhost:8000` 打开 Web 界面
+
+### Docker安装步骤
+1. 编译镜像
+```bash
+docker build video_finder-llama3.2-vision-ollama:latest .
+```
+2. 启动镜像
+```bash
+docker run -d --name VideoFinder-LLama3.2-vision-Ollama -it -p 8000:8000 -v {UPLOAD_DIR}:/app/uploads -v {FRAMES_DIR}:/app/frames -e OLLAMA_HOST="http://{ip}:{port}" video_finder-llama3.2-vision-ollama:latest
+```
+3. 访问 `http://localhost:8000` 打开 Web 界面
+
+### 确保 Ollama 已运行并加载 Llama Vision 模型
+```bash
+ollama run llama3.2-vision
+```
 
 ## 🛠️ 使用方法
 1. 打开 Web 界面
